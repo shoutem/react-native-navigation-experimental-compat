@@ -40,9 +40,13 @@ type Props = {
   style?: any,
 };
 
+const backIconPath = Platform.OS === 'ios'
+  ? './assets/back-icon-ios.png'
+  : './assets/back-icon-android.png';
+
 const NavigationHeaderBackButton = (props: Props) => (
   <TouchableOpacity style={[styles.buttonContainer, props.style]} onPress={props.onPress}>
-    <Image style={[styles.button, props.imageStyle]} source={require('./assets/back-icon.png')} />
+    <Image style={[styles.button, props.imageStyle]} source={require(backIconPath)} />
   </TouchableOpacity>
 );
 
